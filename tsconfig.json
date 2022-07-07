@@ -18,10 +18,13 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "resolveJsonModule": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["./src", "global.d.ts"],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "baseUrl": "./src/components",
+  "paths": {
+    "views": ["./views"],
+    "xuder": ["./xuder"]
+  }
 }
