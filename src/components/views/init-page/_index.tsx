@@ -1,13 +1,17 @@
+import './index.styl'
+
+import { DispatchProps, StateProps } from './types'
+
+import { GlobalState } from 'src/components/xuder/reducer'
 import React from 'react'
-import cx from 'classnames'
 import { View } from '@tarojs/components'
+import { connect } from 'react-redux'
+import cx from 'classnames'
 
 // import { ProjectFilter } from './types'
 // import * as utils from './utils'
 // import { GTA_OPTIONS_MAP } from './consts'
 // import { createMemberAddMenu, mapTagMember2Involver } from './utils'
-
-import './index.styl'
 
 // #region 书写注意
 //
@@ -19,7 +23,27 @@ import './index.styl'
 //
 // #endregion
 
-class Index extends React.PureComponent<any> {
+export interface OwnProps {}
+
+export type Props = Readonly<OwnProps> & StateProps & DispatchProps
+
+// @connect(
+//   (state: GlobalState) => ({
+//     counter
+//   }),
+//   dispatch => ({
+//     add() {
+//       dispatch(add())
+//     },
+//     dec() {
+//       dispatch(minus())
+//     },
+//     asyncAdd() {
+//       dispatch(asyncAdd())
+//     }
+//   })
+// )
+class Index extends React.PureComponent<Props> {
   cxPrefix = 'organization-portal'
 
   constructor(props) {
@@ -27,14 +51,12 @@ class Index extends React.PureComponent<any> {
   }
 
   componentDidMount() {
-    // this.props.actions.getProjectTags()
-  }
-
-  componentWillUnmount() {
     const { actions } = this.props
 
-    // actions.unmountOrganizationPortal()
+    // console.log('actions.getProjectTags', actions.getProjectTags)
   }
+
+  componentWillUnmount() {}
 
   render() {
     // return <div className={styles[this.cxPrefix]}></div>
